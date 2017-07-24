@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8">
         <title> Caio diz: Oi! </title>
         <!--Import Google Icon Font-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -12,12 +13,40 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </head>
 
-    <body>
-        <div class="profilePhotoFrame">
-            <img src="img/profile.jpg" class="profilePhoto">
+    <body class="white-text">
+        <div class="profilePhotoFrame container">
+            <img src="img/profile.jpg" class="profilePhoto circle">
         </div>
 
-        <!--Import jQuery before materialize.js-->
+        <h1 id="bigOne" class="container"></h1>
+
+        <div class="container">
+        <h2 class="">Faça login:</h2>
+            <input id="txtEmail" type="email" placeholder="email">
+            <input id="txtPassword" type="password" placeholder="senha">
+            <button id="btnLogin" class="waves-effect waves-light btn blue white-text">Entrar</button>
+            <button id="btnSignUp" class="waves-effect waves-blue btn white blue-text">Cadastrar</button>
+            <button id="btnLogOut" class="waves-effect waves-light btn red white-text hide">Sair</button>
+        </div>
+
+        <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+        <script>
+             // Initialize Firebase
+            const config = {
+                apiKey: "AIzaSyAfhrpU_zDCgpPD4EXZ5tweBc5WVCFMq-k",
+                authDomain: "project-8503719366441946921.firebaseapp.com",
+                databaseURL: "https://project-8503719366441946921.firebaseio.com",
+                projectId: "project-8503719366441946921",
+                storageBucket: "project-8503719366441946921.appspot.com",
+                messagingSenderId: "983706161084"
+            };
+            firebase.initializeApp(config);
+
+            var bigOne = document.getElementById("bigOne");
+            var dbRef = firebase.database().ref().child('text');
+            dbRef.on('value', snap => bigOne.innerText = snap.val())
+
+        </script>
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="js/materialize.min.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
