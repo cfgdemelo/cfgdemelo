@@ -1,0 +1,30 @@
+body {
+  background-color: #F1A706;
+}
+
+.profilePhoto {
+  width: 40px;
+  margin: 10px;
+}
+
+.footerPhoto {
+  width: 150px;
+}
+
+.navBar {
+  background-color: #F1A706;
+}
+
+.padding {
+  padding: 5%;
+}
+
+header, main, footer {
+  padding-left: 300px;
+}
+
+@media only screen and (max-width : 992px) {
+  header, main, footer {
+    padding-left: 0;
+  }
+}
